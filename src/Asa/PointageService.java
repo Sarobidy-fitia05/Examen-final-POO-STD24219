@@ -5,16 +5,17 @@ import java.util.List;
 
 public class PointageService {
     public static boolean pointageRouge(List<Pointage> pointages, LocalDate date) {
-        double total = 0;
-        for (Pointage p : pointages) {
-            if (p.getDate().equals(date)) {
-                if (p.getQuota() <= 0 || p.getQuota() > 1) {
-                    throw  new IllegalArgumentException("Quota invalide detecté !");
-                }
-                total += p.getQuota();
-            }
+        boolean quotaIvalide = pointages.stream()
+                .filter(Pointage pointage -> pointage.getDate.equals(date))
+                .anyMatch(pointage -> pointage.getQuota() <= 0 || pointage.getQuota() > 1)
+        if (quotaIvalide) {
+            throw new IllegalArgumentException("Quota invalide detecté .");
         }
+        double total =pointages.stream()
+                .filter(pointage -> pointage.getDate().equals(date))
+                .mapToDouble(Pointage::getQuota)
+                .sum();
         return total == 1.0;
     }
-    
+
 }
