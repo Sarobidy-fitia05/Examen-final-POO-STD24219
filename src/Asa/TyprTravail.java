@@ -1,0 +1,6 @@
+package Asa;
+
+public enum TyprTravail {
+    ENSEIGNEMENT,ADMINISTRATION,COMMUNICATION, RD,ABS_PAYÉE,ABS_NON_PAYÉE;
+
+}
