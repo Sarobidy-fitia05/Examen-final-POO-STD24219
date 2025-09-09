@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PrestataireService {
-    public static long getDaysRed(Prestataire prestataire, LocalDate debut , LocalDate fin) {
+    public static long getJour(Prestataire prestataire, LocalDate debut , LocalDate fin) {
         return prestataire.getPointages().stream()
                 .filter(pointage -> !pointage.getTyprTravail().equals(TyprTravail.ABS_NON_PAYÉE)) && !pointage.getTyprTravail().equals(TyprTravail.ABS_NON_PAYÉE)
                 .map(Pointage::getDate)
